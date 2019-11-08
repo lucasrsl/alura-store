@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loja Alura</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= nav_bar brand: "Home", brand_link: root_url do %>
+      <%= menu_group do %>
+        <%= menu_item "Adicionar novo produto", new_produto_path %>
+      <% end %>
+        <%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
+          <div class="form-group">
+            <%= text_field_tag :name, @name, class: "form-control" %>
+            <%= button_to  "Buscar", nil, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+    <% end %>
+      <div class="container">
+        <%= yield %>
+      </div>
+  </body>
+</html>
