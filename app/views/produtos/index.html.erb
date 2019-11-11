@@ -1,30 +1,22 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
 
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
             <td>Nome</td>
             <td>Descrição</td>
+            <td>Departamento</td>
             <td>Preço</td>
             <td>Quantidade</td>
-            <td colspan="1"></td>
+            <td colspan="2"></td>
         </tr> 
     </thead>
     <tbody>
-        <% @produtos.each do |produto| %>
-            <tr>
-                <td><%= produto.name %></td>
-                <td><%= produto.description %></td>
-                <td><%= produto.price %></td>
-                <td><%= produto.quantity %></td>
-                <td><%= button_to "Remover", 
-                    produto, 
-                    method: :delete, 
-                    class: "btn btn-danger", 
-                    data: {
-                        confirm: "Você tem certeza que deseja remover o produto #{produto.name}?"
-                    } %></td>
-            </tr>
-        <% end %>
+        <%= render @produtos %>
     </tbody>
 </table>
 <div class="alert alert-success" role="alert">
@@ -35,19 +27,14 @@
         <tr>
             <td>Nome</td>
             <td>Descrição</td>
+            <td>Departamento</td>
             <td>Preço</td>
             <td>Quantidade</td>
+            <td colspan="2"></td>
         </tr> 
     </thead>
     <tbody>
-        <% @produto_com_desconto.each do |produto| %>
-            <tr>
-                <td><%= produto.name %></td>
-                <td><%= produto.description %></td>
-                <td><%= produto.price %></td>
-                <td><%= produto.quantity %></td>
-            </tr>
-        <% end %>
+        <%= render  @produto_com_desconto %>
     </tbody>
 </table>
     
