@@ -3,7 +3,7 @@ class ProdutosController < ApplicationController
     before_action :set_produto, only: [:edit, :update, :destroy]
 
     def index
-        @produtos = Produto.order(name: :asc).limit 5
+        @produtos = Produto.order(name: :asc).limit 6
         @produto_com_desconto = Produto.order(:price).limit 1
     end
 
